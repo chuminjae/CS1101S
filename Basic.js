@@ -5,6 +5,9 @@ const b = 2;
 a / b; // 2.5
 a % b; // 1
 x < 1 ? a + 1: a + 5;
+// predicate
+a === b;
+a !=== b;
 // predicate ? consequent statement: alternate consequent statement
 // Only evaluate the one that is selected.
 // But the statement itself should have right syntax
