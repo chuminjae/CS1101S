@@ -24,7 +24,34 @@ function repeat_pattern2(n, pat, val){
 repeat_pattern1(3, square, 2);
 repeat_pattern2(3, square, 2);
 
-function fibonacci(n){
-    return n === 0 ? 1: n * fibonacci(n - 1);
+// normal order recursive process
+function factorial1(n){
+    return n === 0 ? 1: n * factorial1(n - 1);
 }
-fibonacci(5);
+
+// applicative order iterative process
+function iter(product, counter, n){
+    return counter > n ? product : iter(counter * product, counter + 1, n);
+}
+function factorial2(n){
+    return iter(1,1, n);
+}
+
+// normal order recursive process
+function fib1(n){
+    return n <= 1 ? n : fib1(n-1) + fib1(n - 2);
+}
+fib1(11);
+
+// applicative order iterative process
+function fib_iter(a,b, count){
+    return count ===  0 ? b : fib_iter( a+b, a, count - 1);
+    
+}
+function fib2(n){
+    return fib_iter(1,0, n);
+    
+}
+fib2(11);
+
+
