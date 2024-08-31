@@ -41,3 +41,7 @@ function connect_rigidly(curve1, curve2){
 }
 const result_curve = connect_rigidly(arc, translate(1,0,0)(arc));
 draw_connected_full_view_proportional(200)(result_curve);
+// Sound
+const pitch_A_wave = t => math_sin(2 * math_PI * 440 * t);
+const pitch_A = make_sound(pitch_A_wave, 1.5)
+play(A);
