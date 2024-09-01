@@ -13,3 +13,10 @@ pascal_triangle(4,3);
 // Question 3
 const ans1 = 1;
 const ans2 = 1;
+/*
+function compose(f, g){
+    return x => f(g(x));
+}
+compose(math_sqrt, math_log)(math_E);
+compose(math_log, math_sqrt)(math_E * math_E);
+*/
