@@ -15,7 +15,10 @@ const p = pair(1,2);   // p = f => f(1,2);
 const head = p => p((x, y) => x);
 const tail = p => p((x,y) => y);
 head(p);
-
+function gcd(a, b){
+    return b === 0 ? a : gcd(b, a % b);
+}
+// rational number case study
 // Constructor
 function make_rat(n, d){
     const g = gcd(n, d);
@@ -50,3 +53,19 @@ function rat_to_string(x){
 const one_half = make_rat(1,2);
 const one_third = make_rat(1,3);
 display(rat_to_string(mul_rat(one_half, one_third)));
+display(rat_to_string(add_rat(one_third, one_third)));
+
+
+// Making lists with pairs
+pair(pair(100,50), pair(20, pair(10,5)));
+// Principle ensure that head(p) always has the data
+// Tail always have the remaing, elements
+const denoms = pair(100, pair(50, pair(20, 10)));
+// Empty List null
+// A list is either null or a pair whose tail is a list
+const my_list = null;
+const your_list = pair(8, null);
+const first_denomination = pair(100, pair(50, pair(20, pair(10, pair(5, null)))));
+head(denoms) // 100
+head(tail(denoms)) // 50
+head(tail(tail(denoms))) // 20
