@@ -55,7 +55,7 @@ const one_third = make_rat(1,3);
 display(rat_to_string(mul_rat(one_half, one_third)));
 display(rat_to_string(add_rat(one_third, one_third)));
 
-
+/*
 // Making lists with pairs
 pair(pair(100,50), pair(20, pair(10,5)));
 // Principle ensure that head(p) always has the data
@@ -68,4 +68,35 @@ const your_list = pair(8, null);
 const first_denomination = pair(100, pair(50, pair(20, pair(10, pair(5, null)))));
 head(denoms) // 100
 head(tail(denoms)) // 50
-head(tail(tail(denoms))) // 20
+head(tail(tail(denoms))) // 20 */
+
+
+// Source 2
+/*
+pair(x, y);
+is_pair(p);
+is_null(xs);
+head(p);
+tail(p);
+list(x1, x2, x3); */
+const a = list(100, 50, 20, 10, 5);
+
+// Box notation
+/*
+pair(x, y) is printed as [x, y]
+empty lists are printed as null
+display_list nicely formatted and printed
+*/
+
+draw_data(pair(1, pair(2, pair(3, null))));
+function lenght(a){
+    return is_null(a) ? 0 : 1+ lenght(tail(a));
+}
+function lenght_iter(a){
+    function len(ys, counted_so_far){
+        return is_null(ys) 
+               ? counted_so_far
+               : len(tail(ys), counted_so_far + 1);
+    }
+    return len(xs, 0);
+}
