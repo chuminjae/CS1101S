@@ -42,3 +42,35 @@ function reverse3(xs){
     return rev(xs, null);
 }
 
+
+function scale_list(xs, k){
+    return is_null(xs)
+            ? null
+            : pair(k * head(xs), 
+                    scale_list(tail(xs), k));
+}
+function scale_list1(xs, k){
+    return map(x => k * x, xs);
+}
+function square_list1(xs){
+    return map(x => x * x, xs);
+}
+function copy(xs){
+    return map(x => x, xs);
+}
+
+function square_list(xs, k){
+    const square = x => x *x *x;
+    return is_null(xs)
+            ? null
+            : pair(square(head(xs)), 
+                    square_list(tail(xs), k));
+}
+
+function map(f,xs){
+    return is_null(xs)
+           ? null
+           : pair(f(head(xs)), map(f, tail(xs)));
+}
+
+
