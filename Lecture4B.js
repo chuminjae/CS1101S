@@ -79,5 +79,12 @@ function even_numbers(xs){
             ? pair(head(xs), even_numbers(tail(xs)))
             : even_numbers(tail(xs));
 }
+function filter(pred, xs){
+     return is_null(xs)
+            ? null 
+            : pred(head(xs))
+            ? pair(head(xs), filter(pred, tail(xs)))
+            : filter(pred, tail(xs));
+}
 
 
