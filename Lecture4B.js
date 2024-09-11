@@ -14,6 +14,7 @@ function append2(xs, ys){
 }
 
 //이러면 list가 안나옴.
+// 맨 앞이 null
 function reverse1(lst){
     return us_nul(lst)  
             ? null
