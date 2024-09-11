@@ -72,5 +72,12 @@ function map(f,xs){
            ? null
            : pair(f(head(xs)), map(f, tail(xs)));
 }
+function even_numbers(xs){
+    return is_null(xs)
+            ? null 
+            : head(xs) % 2 === 0
+            ? pair(head(xs), even_numbers(tail(xs)))
+            : even_numbers(tail(xs));
+}
 
 
