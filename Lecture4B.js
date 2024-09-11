@@ -94,4 +94,15 @@ function list_sum(xs){
             ? 0
             : head(xs) + list_sum(tail(xs));
 }
+function list_multiply(xs){
+    return is_null(xs)
+            ? 1
+            : head(xs) * list_sum(tail(xs));
+}
+function accumulate(op, initial, xs){
+    return is_null(xs)
+            ? initial
+            : op(head(xs), 
+                            accumulate(op, initial ,tail(xs)));
+}
 
