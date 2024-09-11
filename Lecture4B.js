@@ -86,5 +86,12 @@ function filter(pred, xs){
             ? pair(head(xs), filter(pred, tail(xs)))
             : filter(pred, tail(xs));
 }
-
+function even_numbers1(xs){
+    return filter(x => x % 2 === 0, xs);
+}
+function list_sum(xs){
+    return is_null(xs)
+            ? 0
+            : head(xs) + list_sum(tail(xs));
+}
 
