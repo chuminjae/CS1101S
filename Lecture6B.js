@@ -136,5 +136,51 @@ head(stream_tail(stream_filter(
     enum_stream(10000, 1000000)
 )));
 
+function stream_tail(stream) {
+    return tail(stream)();
+}
 
+function stream_ref(s, n) {
+    return n === 0
+        ? head(s)
+        : stream_ref(stream_tail(s), n - 1);
+}
+
+function integers_from(n) {
+    return pair(n, () => integers_from(n + 1));
+}
+
+const integers = integers_from(1);
+
+//stream_ref(integers, 0); // 1
+
+//stream_ref(integers, 10); // 11
+
+stream_ref(integers, 99); // 100
+
+function integers_from(n) {
+    return pair(n, () => integers_from(n + 1));
+}
+
+const integers = integers_from(1);
+
+function is_divisible(x, y) {
+    return x % y === 0;
+}
+
+const no_fours = 
+    stream_filter(
+        x => !is_divisible(x, 4),
+        integers
+    );
+
+stream_ref(no_fours, 3);
+
+//stream_ref(no_fours, 100)
+function eval_stream(s, n) {
+    return n === 0
+    ? null
+    : pair(head(s),
+    eval_stream(stream_tail(s), n - 1));
+}
 
