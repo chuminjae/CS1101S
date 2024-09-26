@@ -69,4 +69,15 @@ function merge_sort(lst){
                      merge_sort(drop(lst, mid)));
     }
 }
-merge_sort(a);
+merge_sort(list(1,2,3));
+
+// Differentiation
+function deriv_numeric(f){
+    const dx = 0.0001;
+    return x => (f(x + dx) - f(x))/ dx;
+}
+const f = x => x * x + x + 4;
+const f_prime = deriv_numeric(f);
+f_prime(3);
+
+
