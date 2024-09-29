@@ -13,3 +13,12 @@ pair(1, helper(2, 2))
 pair(1, pair(2, helper(2, 1)))
 
 pair(1, pair(2, pair(2, helper(3,3))).....
+
+
+function shorten_stream(a, b) {
+    return b === 0 || is_null(a)
+           ? null
+           : pair(head(a), 
+                  () => shorten_stream(stream_tail(a), b - 1));
+}
+
