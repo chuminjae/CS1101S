@@ -1,5 +1,4 @@
 const mem = [];
-
 function read(n, k) {
     return mem[n] === undefined
            ? undefined
@@ -36,7 +35,7 @@ function cc(amount, kinds_of_coins) {
 // The memoized version.
 // n is the amount in cents, and k is the number of denominations.
 function mcc(n, k) {
-    if(n === 0){
+    }    if(n === 0){
         return 1;
     }
     else if(n < 0 || k ===0){
@@ -49,7 +48,6 @@ function mcc(n, k) {
         const result = mcc(n, k - 1) + mcc(n - first_denomination(k), k);
         write(n, k, result);
         return result;
-    }
-}
 
+}
 mcc(365, 5);  // Expected result: 1730
